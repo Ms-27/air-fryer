@@ -32,9 +32,15 @@ jobs:
             --exclude-glob .github/ \
             --exclude-glob .gitignore \
             --exclude-glob .DS_Store \
+            --exclude-glob .venv/ \
+            --exclude-glob __pycache__/ \
             --exclude-glob DEPLOIEMENT.md \
             --exclude-glob DIAGNOSTIC.md \
             --exclude-glob info.php \
+            --exclude-glob app.py \
+            --exclude-glob page_template.py \
+            --exclude-glob wsgi.py \
+            --exclude-glob requirements.txt \
             ./ /home/juliver/www/airfry/
           bye
           EOF
