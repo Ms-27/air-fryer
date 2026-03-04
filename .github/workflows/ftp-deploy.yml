@@ -33,6 +33,8 @@ jobs:
             --exclude-glob .gitignore \
             --exclude-glob .DS_Store \
             --exclude-glob DEPLOIEMENT.md \
+            --exclude-glob DIAGNOSTIC.md \
+            --exclude-glob info.php \
             ./ /home/juliver/www/airfry/
           bye
           EOF
