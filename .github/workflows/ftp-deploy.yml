@@ -1,0 +1,38 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to OVH via SFTP (lftp)
+        env:
+          SFTP_HOST: ${{ secrets.OVH_FTP_SERVER }}
+          SFTP_USER: ${{ secrets.OVH_FTP_USERNAME }}
+          SFTP_PASS: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+          lftp -u "$SFTP_USER","$SFTP_PASS" "sftp://$SFTP_HOST:22" <<'EOF'
+          set sftp:auto-confirm yes
+          set net:max-retries 2
+          set net:timeout 20
+          mirror -R --verbose \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob .gitignore \
+            --exclude-glob .DS_Store \
+            --exclude-glob DEPLOIEMENT.md \
+            ./ /home/juliver/www/airfry/
+          bye
+          EOF
