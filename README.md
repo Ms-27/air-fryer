@@ -2,14 +2,30 @@
 
 Application web pour convertir les températures et temps de cuisson d'un four traditionnel vers un airfryer.
 
-## 🚀 Déploiement
+## � Structure du projet
 
-Cette application utilise **HTML/JavaScript pur** et fonctionne sur n'importe quel hébergement web.
+```
+air-fryer/
+├── index.html          # Structure HTML
+├── styles.css          # Styles et design
+├── app.js              # Logique métier et interactions
+├── .htaccess           # Configuration Apache
+├── .github/
+│   └── workflows/
+│       └── ftp-deploy.yml  # CI/CD automatique
+└── README.md
+```
+
+## �🚀 Déploiement
+
+Cette application utilise **HTML/CSS/JavaScript pur** et fonctionne sur n'importe quel hébergement web.
 
 ### Fichiers déployés
 
-Seuls ces fichiers sont nécessaires sur votre serveur :
-- `index.html` - Application complète
+Fichiers nécessaires sur votre serveur :
+- `index.html` - Structure de l'application
+- `styles.css` - Feuille de styles
+- `app.js` - Logique JavaScript
 - `.htaccess` - Configuration Apache (optionnel)
 
 ### Déploiement automatique
@@ -37,6 +53,11 @@ Ouvrez simplement `index.html` dans votre navigateur. Aucune installation néces
 - Suggestions rapides basées sur l'historique
 - Interface responsive et moderne
 
-## 🔧 Version Python (archive)
+## 🏗️ Architecture
 
-Les fichiers Python (`app.py`, `page_template.py`, `wsgi.py`) sont conservés dans le repo mais ne sont plus déployés. La version HTML offre les mêmes fonctionnalités sans nécessiter de configuration serveur complexe.
+Le projet suit les bonnes pratiques du développement web :
+- **Séparation des préoccupations** : HTML, CSS et JavaScript dans des fichiers distincts
+- **Code modulaire** : Fonctions réutilisables et bien nommées
+- **Clean code** : Code lisible et maintenable
+- **Progressive enhancement** : Fonctionne sans JavaScript (formulaire de base)
+
