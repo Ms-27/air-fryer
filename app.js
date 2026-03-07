@@ -1,10 +1,10 @@
 const STORAGE_KEY = "airfryer_frequent_values_v1";
 const FORM_ID = "convert-form";
 const FIELDS = ["temperature", "time"];
-const MAX_VALUES = 4;
+const MAX_VALUES = 6;
 const DEFAULT_VALUES = {
-  temperature: ["180", "190", "200", "220"],
-  time: ["10", "15", "20", "25"],
+  temperature: ["180", "185", "190", "200", "210", "220"],
+  time: ["5", "10", "15", "20", "25", "30"],
 };
 
 function convertForAirfryer(temperature, timeMinutes) {
