@@ -47,7 +47,7 @@ function topValues(stats, field) {
     .map(([value]) => value);
 
   if (frequentValues.length >= MAX_VALUES) {
-    return frequentValues;
+    return frequentValues.sort((a, b) => parseFloat(a) - parseFloat(b));
   }
 
   const defaults = DEFAULT_VALUES[field] || [];
@@ -58,7 +58,7 @@ function topValues(stats, field) {
     }
   });
 
-  return merged;
+  return merged.sort((a, b) => parseFloat(a) - parseFloat(b));
 }
 
 function renderButtons() {
